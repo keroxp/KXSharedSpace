@@ -22,7 +22,7 @@
 		A6D4F1BC1898EE470083EC74 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D4F19B1898EE470083EC74 /* UIKit.framework */; };
 		A6D4F1C41898EE470083EC74 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6D4F1C21898EE470083EC74 /* InfoPlist.strings */; };
 		A6D4F1C61898EE470083EC74 /* KXSharedSpaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D4F1C51898EE470083EC74 /* KXSharedSpaceTests.m */; };
-		A6D4F1D11898EE550083EC74 /* KXSharedSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D4F1D01898EE550083EC74 /* KXSharedSpace.m */; };
+		A6D4F1D6189902EE0083EC74 /* KXSharedSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D4F1D5189902EE0083EC74 /* KXSharedSpace.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,8 @@
 		A6D4F1C11898EE470083EC74 /* KXSharedSpaceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KXSharedSpaceTests-Info.plist"; sourceTree = "<group>"; };
 		A6D4F1C31898EE470083EC74 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A6D4F1C51898EE470083EC74 /* KXSharedSpaceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KXSharedSpaceTests.m; sourceTree = "<group>"; };
-		A6D4F1CF1898EE550083EC74 /* KXSharedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXSharedSpace.h; sourceTree = "<group>"; };
-		A6D4F1D01898EE550083EC74 /* KXSharedSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXSharedSpace.m; sourceTree = "<group>"; };
+		A6D4F1D4189902EE0083EC74 /* KXSharedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXSharedSpace.h; sourceTree = "<group>"; };
+		A6D4F1D5189902EE0083EC74 /* KXSharedSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXSharedSpace.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +88,7 @@
 		A6D4F18B1898EE470083EC74 = {
 			isa = PBXGroup;
 			children = (
+				A6D4F1D3189902EE0083EC74 /* Classes */,
 				A6D4F19D1898EE470083EC74 /* KXSharedSpace */,
 				A6D4F1BF1898EE470083EC74 /* KXSharedSpaceTests */,
 				A6D4F1961898EE470083EC74 /* Frameworks */,
@@ -127,8 +128,6 @@
 				A6D4F1B01898EE470083EC74 /* KXDetailViewController.m */,
 				A6D4F1B21898EE470083EC74 /* Images.xcassets */,
 				A6D4F19E1898EE470083EC74 /* Supporting Files */,
-				A6D4F1CF1898EE550083EC74 /* KXSharedSpace.h */,
-				A6D4F1D01898EE550083EC74 /* KXSharedSpace.m */,
 			);
 			path = KXSharedSpace;
 			sourceTree = "<group>";
@@ -160,6 +159,15 @@
 				A6D4F1C21898EE470083EC74 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A6D4F1D3189902EE0083EC74 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A6D4F1D4189902EE0083EC74 /* KXSharedSpace.h */,
+				A6D4F1D5189902EE0083EC74 /* KXSharedSpace.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6D4F1D11898EE550083EC74 /* KXSharedSpace.m in Sources */,
+				A6D4F1D6189902EE0083EC74 /* KXSharedSpace.m in Sources */,
 				A6D4F1B11898EE470083EC74 /* KXDetailViewController.m in Sources */,
 				A6D4F1A41898EE470083EC74 /* main.m in Sources */,
 				A6D4F1A81898EE470083EC74 /* KXAppDelegate.m in Sources */,
