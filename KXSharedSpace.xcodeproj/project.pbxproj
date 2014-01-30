@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		232DE27B189A150300A2AF5D /* KXSharedSpaceOwnershipTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 232DE27A189A150300A2AF5D /* KXSharedSpaceOwnershipTests.m */; };
 		23DC29D71899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DC29D61899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m */; };
 		23DC29DA1899E6ED0077B9C0 /* NSObject+KXSharedSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DC29D91899E6ED0077B9C0 /* NSObject+KXSharedSpace.m */; };
 		A6D4F1981898EE470083EC74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D4F1971898EE470083EC74 /* Foundation.framework */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		232DE27A189A150300A2AF5D /* KXSharedSpaceOwnershipTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXSharedSpaceOwnershipTests.m; sourceTree = "<group>"; };
 		23DC29D61899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXSharedSpaceAspectTests.m; sourceTree = "<group>"; };
 		23DC29D81899E6ED0077B9C0 /* NSObject+KXSharedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KXSharedSpace.h"; sourceTree = "<group>"; };
 		23DC29D91899E6ED0077B9C0 /* NSObject+KXSharedSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KXSharedSpace.m"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			children = (
 				A6D4F1C51898EE470083EC74 /* KXSharedSpaceTests.m */,
 				23DC29D61899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m */,
+				232DE27A189A150300A2AF5D /* KXSharedSpaceOwnershipTests.m */,
 				A6D4F1C01898EE470083EC74 /* Supporting Files */,
 			);
 			path = KXSharedSpaceTests;
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23DC29D71899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m in Sources */,
+				232DE27B189A150300A2AF5D /* KXSharedSpaceOwnershipTests.m in Sources */,
 				A6D4F1C61898EE470083EC74 /* KXSharedSpaceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -27,19 +27,31 @@
     }
 }
 
+- (KXSharedSpace*)spaceWithCommonProc:(NSString*)spaceKey
+{
+    // make the reciever have strong ownership even if calling this method once
+    KXSharedSpace *s = [KXSharedSpace spaceWithName:spaceKey];
+    if (!s) {
+        [KXSharedSpace registerSpaceWithName:spaceKey owner:self];
+    }else{
+        [s addOwner:self];
+    }
+    return s;
+}
+
 - (void)writeData:(id)data toSpaceForKey:(NSString *)spaceKey valueKey:(NSString *)valueKey
 {
-    [KXSharedSpace writeData:data toSpaceForKey:spaceKey valueKey:valueKey];
+    [[self spaceWithCommonProc:spaceKey] writeData:data forKey:valueKey];
 }
 
 - (id)readDataFromSpaceForKey:(NSString *)spaceKey valueKey:(NSString *)valueKey
 {
-    return [KXSharedSpace readDataFromSpace:spaceKey property:valueKey];
+    return [[self spaceWithCommonProc:spaceKey] readDataForKey:valueKey];
 }
 
 - (id)takeDataFromSpaceForKey:(NSString *)spaceKey valueKey:(NSString *)valueKey
 {
-    return [KXSharedSpace takeDataFromSpace:spaceKey property:valueKey];
+    return [[self spaceWithCommonProc:spaceKey] takeDataForKey:valueKey];
 }
 
 - (void)observeValueOnSpaceForKey:(NSString *)spaceKey valueKey:(NSString *)valueKey once:(BOOL)once handler:(KXKeyValueObservingChangeHandler)handler

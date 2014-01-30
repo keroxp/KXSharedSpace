@@ -34,6 +34,7 @@
 {
     XCTAssertNil([KXSharedSpace spaceWithName:@"hoge"],);
     XCTAssertThrows([[KXSharedSpace alloc] init], @"initされたら例外出す");
+    XCTAssertThrows([KXSharedSpace registerSpaceWithName:@"nil" owner:nil], @"nilでregisterしたら例外出す");
     [KXSharedSpace registerSpaceWithName:@"test" owner:self];
     KXSharedSpace *s = [KXSharedSpace spaceWithName:@"test"];
     XCTAssert(s, );
@@ -55,7 +56,6 @@
     [s addObserver:self forKeyPath:@"test" options:NSKeyValueObservingOptionNew context:NULL];
     [s writeData:@"changed" forKey:@"test"];
 }
-
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {

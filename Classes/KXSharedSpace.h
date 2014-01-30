@@ -11,11 +11,9 @@
 extern NSString *const kKXSharedSpaceObserveAllKey;
 @interface KXSharedSpace : NSObject
 
+// register shared space with primtive owner
 + (void)registerSpaceWithName:(NSString*)name owner:(id)owner;
 + (void)unregisterSpaceWithName:(NSString*)name;
-+ (void)writeData:(id)data toSpaceForKey:(NSString*)spaceKey valueKey:(NSString *)valueKey;
-+ (id)readDataFromSpace:(NSString*)spaceKey property:(NSString *)property;
-+ (id)takeDataFromSpace:(NSString*)spaceKey property:(NSString *)property;
 
 // get space with specified key
 + (KXSharedSpace*)spaceWithName:(NSString*)name;
@@ -23,13 +21,15 @@ extern NSString *const kKXSharedSpaceObserveAllKey;
 - (void)writeData:(id)data forKey:(NSString *)key;
 - (id)readDataForKey:(NSString *)key;
 - (id)takeDataForKey:(NSString *)key;
+- (void)addOwner:(id)owner;
+- (void)removeOwner:(id)owner;
 
 // KVO method to the reciever, actually to the dictionary object
 - (void)addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context;
 - (void)removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void *)context;
 
-// an explicit owner object of the reciever
-@property (weak, nonatomic) id owner;
+// owner objects of the reciever
+@property (nonatomic, readonly) NSSet *owners;
 // name of the reciever
 @property (nonatomic, readonly) NSString *name;
 // key-value-store that the reciever has
