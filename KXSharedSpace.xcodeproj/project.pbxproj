@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23DC29D71899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DC29D61899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m */; };
+		23DC29DA1899E6ED0077B9C0 /* NSObject+KXSharedSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DC29D91899E6ED0077B9C0 /* NSObject+KXSharedSpace.m */; };
 		A6D4F1981898EE470083EC74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D4F1971898EE470083EC74 /* Foundation.framework */; };
 		A6D4F19A1898EE470083EC74 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D4F1991898EE470083EC74 /* CoreGraphics.framework */; };
 		A6D4F19C1898EE470083EC74 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D4F19B1898EE470083EC74 /* UIKit.framework */; };
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23DC29D61899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXSharedSpaceAspectTests.m; sourceTree = "<group>"; };
+		23DC29D81899E6ED0077B9C0 /* NSObject+KXSharedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KXSharedSpace.h"; sourceTree = "<group>"; };
+		23DC29D91899E6ED0077B9C0 /* NSObject+KXSharedSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KXSharedSpace.m"; sourceTree = "<group>"; };
 		A6D4F1941898EE470083EC74 /* KXSharedSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KXSharedSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D4F1971898EE470083EC74 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6D4F1991898EE470083EC74 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -147,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				A6D4F1C51898EE470083EC74 /* KXSharedSpaceTests.m */,
+				23DC29D61899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m */,
 				A6D4F1C01898EE470083EC74 /* Supporting Files */,
 			);
 			path = KXSharedSpaceTests;
@@ -166,6 +172,8 @@
 			children = (
 				A6D4F1D4189902EE0083EC74 /* KXSharedSpace.h */,
 				A6D4F1D5189902EE0083EC74 /* KXSharedSpace.m */,
+				23DC29D81899E6ED0077B9C0 /* NSObject+KXSharedSpace.h */,
+				23DC29D91899E6ED0077B9C0 /* NSObject+KXSharedSpace.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -272,6 +280,7 @@
 				A6D4F1B11898EE470083EC74 /* KXDetailViewController.m in Sources */,
 				A6D4F1A41898EE470083EC74 /* main.m in Sources */,
 				A6D4F1A81898EE470083EC74 /* KXAppDelegate.m in Sources */,
+				23DC29DA1899E6ED0077B9C0 /* NSObject+KXSharedSpace.m in Sources */,
 				A6D4F1AE1898EE470083EC74 /* KXMasterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23DC29D71899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m in Sources */,
 				A6D4F1C61898EE470083EC74 /* KXSharedSpaceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +491,7 @@
 				A6D4F1CB1898EE470083EC74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A6D4F1CC1898EE470083EC74 /* Build configuration list for PBXNativeTarget "KXSharedSpaceTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +500,7 @@
 				A6D4F1CE1898EE470083EC74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

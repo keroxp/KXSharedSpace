@@ -36,19 +36,3 @@ extern NSString *const kKXSharedSpaceObserveAllKey;
 @property (nonatomic, readonly) NSDictionary *dictionary;
 
 @end
-
-typedef void(^KXKeyValueObservingChangeHandler)(NSKeyValueChange change, id newValue, id oldValue);
-
-@interface NSObject (KXSharedSpace)
-
-- (void)useSharedSpaceAspect;
-- (void)writeData:(id)data toSpaceForKey:(NSString*)spaceKey valueKey:(NSString*)valueKey;
-- (id)readDataFromSpaceForKey:(NSString*)spaceKey valueKey:(NSString*)valueKey;
-- (id)takeDataFromSpaceForKey:(NSString*)spaceKey valueKey:(NSString*)valueKey;
-- (void)observeValueOnSpaceForKey:(NSString*)spaceKey
-                         valueKey:(NSString*)valueKey
-                             once:(BOOL)once
-                          handler:(KXKeyValueObservingChangeHandler)handler;
-- (void)stopObservingToSpaceForKey:(NSString*)spaceKey valueKey:(NSString*)valueKey;
-
-@end

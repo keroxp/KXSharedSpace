@@ -33,6 +33,7 @@
 - (void)testBasic
 {
     XCTAssertNil([KXSharedSpace spaceWithName:@"hoge"],);
+    XCTAssertThrows([[KXSharedSpace alloc] init], @"initされたら例外出す");
     [KXSharedSpace registerSpaceWithName:@"test" owner:self];
     KXSharedSpace *s = [KXSharedSpace spaceWithName:@"test"];
     XCTAssert(s, );
@@ -64,5 +65,7 @@
         XCTAssert([new_obj isEqualToString:@"changed"], );
     }
 }
+
+
 
 @end
