@@ -65,20 +65,24 @@
         [[KXSharedSpace spaceWithName:@"weak_"] addOwner:self];
         XCTAssert([[[KXSharedSpace spaceWithName:@"weak_"] owners] count] == 3, @"ownerは二人いるはず");
     }
-    XCTAssert([[[[KXSharedSpace spaceWithName:@"weak_"] owners] allObjects] count] == 1, @"");
     for (id obj in [[KXSharedSpace spaceWithName:@"weak_"] owners]) {
         XCTAssert([obj isEqual:self], );
     }
+    XCTAssert([[[KXSharedSpace spaceWithName:@"weak_"] owners] containsObject:self] , @"");
 }
 
 - (void)testOwnerShip2
 {
-//    KXSharedSpace *s = [KXSharedSpace spaceWithName:@"weak_"];
-//    XCTAssert(s, @"selfが参照しているからあるはず");
+    KXSharedSpace *s = [KXSharedSpace spaceWithName:@"weak_"];
+    XCTAssert(s, @"selfが参照しているからあるはず");
+    NSLog(@"%@",s.owners);
 //    XCTAssert([s.owners.anyObject isEqual:self], @"selfが唯一のowenerなはず");
-//    [s removeOwner:self];
-//    XCTAssert(s.owners.allObjects.count == 0, @"消したから1のはず");
-//    XCTAssertNil([KXSharedSpace spaceWithName:@"weak_"], );
+    [s removeOwner:self];
+}
+
+- (void)testOwnerShiop3
+{
+    XCTAssertNil([KXSharedSpace spaceWithName:@"weak_"], );
 }
 
 @end

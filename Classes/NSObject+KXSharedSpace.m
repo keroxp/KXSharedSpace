@@ -33,7 +33,9 @@
     KXSharedSpace *s = [KXSharedSpace spaceWithName:spaceKey];
     if (!s) {
         [KXSharedSpace registerSpaceWithName:spaceKey owner:self];
-    }else{
+        return [self spaceWithCommonProc:spaceKey];
+    }
+    if(![s.owners containsObject:self]){
         [s addOwner:self];
     }
     return s;
