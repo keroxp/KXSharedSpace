@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^KXKeyValueObservingChangeHandler)(NSKeyValueChange change, id newValue, id oldValue);
-
 @interface NSObject (KXSharedSpace)
 
 - (void)writeData:(id)data toSpaceForKey:(NSString*)spaceKey valueKey:(NSString*)valueKey;
