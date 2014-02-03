@@ -12,14 +12,8 @@ typedef void(^KXKeyValueObservingChangeHandler)(NSKeyValueChange change, id newV
 
 @interface NSObject (KXSharedSpace)
 
-- (void)useBlocksKVOAspect;
 - (void)writeData:(id)data toSpaceForKey:(NSString*)spaceKey valueKey:(NSString*)valueKey;
 - (id)readDataFromSpaceForKey:(NSString*)spaceKey valueKey:(NSString*)valueKey;
 - (id)takeDataFromSpaceForKey:(NSString*)spaceKey valueKey:(NSString*)valueKey;
-- (void)observeValueOnSpaceForKey:(NSString*)spaceKey
-                         valueKey:(NSString*)valueKey
-                             once:(BOOL)once
-                          handler:(KXKeyValueObservingChangeHandler)handler;
-- (void)stopObservingToSpaceForKey:(NSString*)spaceKey valueKey:(NSString*)valueKey;
 
 @end

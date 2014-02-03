@@ -12,7 +12,6 @@
 		23DC29DA1899E6ED0077B9C0 /* NSObject+KXSharedSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DC29D91899E6ED0077B9C0 /* NSObject+KXSharedSpace.m */; };
 		A61DEDFB189D37F4005B51C0 /* KXSharedSpaceKVOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A61DEDFA189D37F4005B51C0 /* KXSharedSpaceKVOTests.m */; };
 		A61DEDFE189D4409005B51C0 /* KXTestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A61DEDFD189D4409005B51C0 /* KXTestObject.m */; };
-		A64D1407189E7F570067D687 /* KXDynamicKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = A64D1406189E7F570067D687 /* KXDynamicKVO.m */; };
 		A6D4F1981898EE470083EC74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D4F1971898EE470083EC74 /* Foundation.framework */; };
 		A6D4F19A1898EE470083EC74 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D4F1991898EE470083EC74 /* CoreGraphics.framework */; };
 		A6D4F19C1898EE470083EC74 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D4F19B1898EE470083EC74 /* UIKit.framework */; };
@@ -49,8 +48,6 @@
 		A61DEDFA189D37F4005B51C0 /* KXSharedSpaceKVOTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXSharedSpaceKVOTests.m; sourceTree = "<group>"; };
 		A61DEDFC189D4409005B51C0 /* KXTestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXTestObject.h; sourceTree = "<group>"; };
 		A61DEDFD189D4409005B51C0 /* KXTestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXTestObject.m; sourceTree = "<group>"; };
-		A64D1405189E7F570067D687 /* KXDynamicKVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXDynamicKVO.h; sourceTree = "<group>"; };
-		A64D1406189E7F570067D687 /* KXDynamicKVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXDynamicKVO.m; sourceTree = "<group>"; };
 		A6D4F1941898EE470083EC74 /* KXSharedSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KXSharedSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D4F1971898EE470083EC74 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6D4F1991898EE470083EC74 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -188,8 +185,6 @@
 				A6D4F1D5189902EE0083EC74 /* KXSharedSpace.m */,
 				23DC29D81899E6ED0077B9C0 /* NSObject+KXSharedSpace.h */,
 				23DC29D91899E6ED0077B9C0 /* NSObject+KXSharedSpace.m */,
-				A64D1405189E7F570067D687 /* KXDynamicKVO.h */,
-				A64D1406189E7F570067D687 /* KXDynamicKVO.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -295,7 +290,6 @@
 				A6D4F1D6189902EE0083EC74 /* KXSharedSpace.m in Sources */,
 				A6D4F1B11898EE470083EC74 /* KXDetailViewController.m in Sources */,
 				A6D4F1A41898EE470083EC74 /* main.m in Sources */,
-				A64D1407189E7F570067D687 /* KXDynamicKVO.m in Sources */,
 				A6D4F1A81898EE470083EC74 /* KXAppDelegate.m in Sources */,
 				23DC29DA1899E6ED0077B9C0 /* NSObject+KXSharedSpace.m in Sources */,
 				A6D4F1AE1898EE470083EC74 /* KXMasterViewController.m in Sources */,
