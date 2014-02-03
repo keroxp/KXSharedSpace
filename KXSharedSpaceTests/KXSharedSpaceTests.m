@@ -30,6 +30,21 @@
     [super tearDown];
 }
 
+- (void)testBlocks
+{
+    void (^block)() = ^{NSLog(@"i am blocks");};
+    id blockref = block;
+    NSLog(@"%@",blockref);
+    NSLog(@"%@",[blockref class]);
+    XCTAssert([blockref isKindOfClass:[NSObject class]], );
+    Class c = [blockref class];
+    while (c) {
+        NSLog(@"%@",NSStringFromClass(c));
+        c = [c superclass];
+    }
+    XCTAssertNoThrow([blockref class], @"???");
+}
+
 - (void)testBasic
 {
     XCTAssertNil([KXSharedSpace spaceWithName:@"hoge"],);
@@ -46,6 +61,16 @@
     XCTAssert([[s readDataForKey:@"data1"] isEqualToString:@"data1"], );
     XCTAssert([[s takeDataForKey:@"data1"] isEqualToString:@"data1"], );
     XCTAssertNil([s readDataForKey:@"data1"], );
+}
+
+- (void)testWrite
+{
+    KXSharedSpace *s = [KXSharedSpace spaceWithName:@"strong"];
+    void (^block)() = ^{ NSLog(@"block invoked!"); };
+    XCTAssertNoThrow([s writeData:block forKey:@"block"], @"");
+    block = [s readDataForKey:@"block"];
+    XCTAssert(block, );
+    XCTAssertNoThrow(block(), );
 }
 
 - (void)testKVO

@@ -100,7 +100,12 @@ static NSMapTable *spaces;
 
 -(void)writeData:(id)data forKey:(NSString *)key
 {
-    [dictioinary_ setObject:data forKey:key];
+    if ([data isKindOfClass:NSClassFromString(@"NSBlock")]) {
+        // copy data if blocks given
+        [dictioinary_ setObject:[data copy] forKey:key];
+    }else{
+        [dictioinary_ setObject:data forKey:key];
+    }
 }
 
 - (id)readDataForKey:(NSString *)key
