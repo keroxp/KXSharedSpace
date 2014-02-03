@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		232DE27B189A150300A2AF5D /* KXSharedSpaceOwnershipTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 232DE27A189A150300A2AF5D /* KXSharedSpaceOwnershipTests.m */; };
+		2370B131189F8FBC00ECBCD6 /* KXAboveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2370B130189F8FBC00ECBCD6 /* KXAboveViewController.m */; };
+		2370B134189F8FC400ECBCD6 /* KXBelowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2370B133189F8FC400ECBCD6 /* KXBelowViewController.m */; };
+		2370B137189F8FE800ECBCD6 /* KXContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2370B136189F8FE800ECBCD6 /* KXContainerViewController.m */; };
 		23DC29D71899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DC29D61899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m */; };
 		23DC29DA1899E6ED0077B9C0 /* NSObject+KXSharedSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DC29D91899E6ED0077B9C0 /* NSObject+KXSharedSpace.m */; };
-		A61DEDFB189D37F4005B51C0 /* KXSharedSpaceKVOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A61DEDFA189D37F4005B51C0 /* KXSharedSpaceKVOTests.m */; };
 		A61DEDFE189D4409005B51C0 /* KXTestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A61DEDFD189D4409005B51C0 /* KXTestObject.m */; };
 		A6D4F1981898EE470083EC74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D4F1971898EE470083EC74 /* Foundation.framework */; };
 		A6D4F19A1898EE470083EC74 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D4F1991898EE470083EC74 /* CoreGraphics.framework */; };
@@ -19,8 +21,6 @@
 		A6D4F1A41898EE470083EC74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D4F1A31898EE470083EC74 /* main.m */; };
 		A6D4F1A81898EE470083EC74 /* KXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D4F1A71898EE470083EC74 /* KXAppDelegate.m */; };
 		A6D4F1AB1898EE470083EC74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D4F1A91898EE470083EC74 /* Main.storyboard */; };
-		A6D4F1AE1898EE470083EC74 /* KXMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D4F1AD1898EE470083EC74 /* KXMasterViewController.m */; };
-		A6D4F1B11898EE470083EC74 /* KXDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D4F1B01898EE470083EC74 /* KXDetailViewController.m */; };
 		A6D4F1B31898EE470083EC74 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6D4F1B21898EE470083EC74 /* Images.xcassets */; };
 		A6D4F1BA1898EE470083EC74 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D4F1B91898EE470083EC74 /* XCTest.framework */; };
 		A6D4F1BB1898EE470083EC74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D4F1971898EE470083EC74 /* Foundation.framework */; };
@@ -42,10 +42,15 @@
 
 /* Begin PBXFileReference section */
 		232DE27A189A150300A2AF5D /* KXSharedSpaceOwnershipTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXSharedSpaceOwnershipTests.m; sourceTree = "<group>"; };
+		2370B12F189F8FBC00ECBCD6 /* KXAboveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXAboveViewController.h; sourceTree = "<group>"; };
+		2370B130189F8FBC00ECBCD6 /* KXAboveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXAboveViewController.m; sourceTree = "<group>"; };
+		2370B132189F8FC400ECBCD6 /* KXBelowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXBelowViewController.h; sourceTree = "<group>"; };
+		2370B133189F8FC400ECBCD6 /* KXBelowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXBelowViewController.m; sourceTree = "<group>"; };
+		2370B135189F8FE800ECBCD6 /* KXContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXContainerViewController.h; sourceTree = "<group>"; };
+		2370B136189F8FE800ECBCD6 /* KXContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXContainerViewController.m; sourceTree = "<group>"; };
 		23DC29D61899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXSharedSpaceAspectTests.m; sourceTree = "<group>"; };
 		23DC29D81899E6ED0077B9C0 /* NSObject+KXSharedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KXSharedSpace.h"; sourceTree = "<group>"; };
 		23DC29D91899E6ED0077B9C0 /* NSObject+KXSharedSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KXSharedSpace.m"; sourceTree = "<group>"; };
-		A61DEDFA189D37F4005B51C0 /* KXSharedSpaceKVOTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXSharedSpaceKVOTests.m; sourceTree = "<group>"; };
 		A61DEDFC189D4409005B51C0 /* KXTestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXTestObject.h; sourceTree = "<group>"; };
 		A61DEDFD189D4409005B51C0 /* KXTestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXTestObject.m; sourceTree = "<group>"; };
 		A6D4F1941898EE470083EC74 /* KXSharedSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KXSharedSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,10 +64,6 @@
 		A6D4F1A61898EE470083EC74 /* KXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KXAppDelegate.h; sourceTree = "<group>"; };
 		A6D4F1A71898EE470083EC74 /* KXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KXAppDelegate.m; sourceTree = "<group>"; };
 		A6D4F1AA1898EE470083EC74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A6D4F1AC1898EE470083EC74 /* KXMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KXMasterViewController.h; sourceTree = "<group>"; };
-		A6D4F1AD1898EE470083EC74 /* KXMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KXMasterViewController.m; sourceTree = "<group>"; };
-		A6D4F1AF1898EE470083EC74 /* KXDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KXDetailViewController.h; sourceTree = "<group>"; };
-		A6D4F1B01898EE470083EC74 /* KXDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KXDetailViewController.m; sourceTree = "<group>"; };
 		A6D4F1B21898EE470083EC74 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A6D4F1B81898EE470083EC74 /* KXSharedSpaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KXSharedSpaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D4F1B91898EE470083EC74 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -134,10 +135,12 @@
 				A6D4F1A61898EE470083EC74 /* KXAppDelegate.h */,
 				A6D4F1A71898EE470083EC74 /* KXAppDelegate.m */,
 				A6D4F1A91898EE470083EC74 /* Main.storyboard */,
-				A6D4F1AC1898EE470083EC74 /* KXMasterViewController.h */,
-				A6D4F1AD1898EE470083EC74 /* KXMasterViewController.m */,
-				A6D4F1AF1898EE470083EC74 /* KXDetailViewController.h */,
-				A6D4F1B01898EE470083EC74 /* KXDetailViewController.m */,
+				2370B135189F8FE800ECBCD6 /* KXContainerViewController.h */,
+				2370B136189F8FE800ECBCD6 /* KXContainerViewController.m */,
+				2370B12F189F8FBC00ECBCD6 /* KXAboveViewController.h */,
+				2370B130189F8FBC00ECBCD6 /* KXAboveViewController.m */,
+				2370B132189F8FC400ECBCD6 /* KXBelowViewController.h */,
+				2370B133189F8FC400ECBCD6 /* KXBelowViewController.m */,
 				A6D4F1B21898EE470083EC74 /* Images.xcassets */,
 				A6D4F19E1898EE470083EC74 /* Supporting Files */,
 			);
@@ -161,7 +164,6 @@
 				A6D4F1C51898EE470083EC74 /* KXSharedSpaceTests.m */,
 				23DC29D61899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m */,
 				232DE27A189A150300A2AF5D /* KXSharedSpaceOwnershipTests.m */,
-				A61DEDFA189D37F4005B51C0 /* KXSharedSpaceKVOTests.m */,
 				A61DEDFC189D4409005B51C0 /* KXTestObject.h */,
 				A61DEDFD189D4409005B51C0 /* KXTestObject.m */,
 				A6D4F1C01898EE470083EC74 /* Supporting Files */,
@@ -288,11 +290,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6D4F1D6189902EE0083EC74 /* KXSharedSpace.m in Sources */,
-				A6D4F1B11898EE470083EC74 /* KXDetailViewController.m in Sources */,
+				2370B134189F8FC400ECBCD6 /* KXBelowViewController.m in Sources */,
+				2370B137189F8FE800ECBCD6 /* KXContainerViewController.m in Sources */,
 				A6D4F1A41898EE470083EC74 /* main.m in Sources */,
 				A6D4F1A81898EE470083EC74 /* KXAppDelegate.m in Sources */,
+				2370B131189F8FBC00ECBCD6 /* KXAboveViewController.m in Sources */,
 				23DC29DA1899E6ED0077B9C0 /* NSObject+KXSharedSpace.m in Sources */,
-				A6D4F1AE1898EE470083EC74 /* KXMasterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +307,6 @@
 				23DC29D71899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m in Sources */,
 				232DE27B189A150300A2AF5D /* KXSharedSpaceOwnershipTests.m in Sources */,
 				A6D4F1C61898EE470083EC74 /* KXSharedSpaceTests.m in Sources */,
-				A61DEDFB189D37F4005B51C0 /* KXSharedSpaceKVOTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
