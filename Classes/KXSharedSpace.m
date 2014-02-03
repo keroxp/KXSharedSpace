@@ -15,8 +15,9 @@ static NSMapTable *spaces;
 
 @interface KXSharedSpace ()
 {
-    NSMutableDictionary *dictioinary_;
+    NSMutableDictionary *dictionary_;
     NSHashTable *_owners;
+    NSHashTable *_allOwners;
 }
 
 - (instancetype)initWithNameSpace:(NSString*)nameSpace owner:(id)owner;
@@ -90,9 +91,10 @@ static NSMapTable *spaces;
 - (instancetype)initWithNameSpace:(NSString *)nameSpace owner:(id)owner
 {
     if (self = [super init]) {
-        dictioinary_ = [NSMutableDictionary new];
+        dictionary_ = [NSMutableDictionary new];
         _name = nameSpace;
         _owners = [NSHashTable hashTableWithOptions:NSHashTableWeakMemory];
+        _allOwners = [NSHashTable hashTableWithOptions:NSHashTableWeakMemory];
         [_owners addObject:owner];
     }
     return self ? self : nil;
@@ -102,27 +104,27 @@ static NSMapTable *spaces;
 {
     if ([data isKindOfClass:NSClassFromString(@"NSBlock")]) {
         // copy data if blocks given
-        [dictioinary_ setObject:[data copy] forKey:key];
+        [self setObjectToDictionary:[data copy] forKey:key];
     }else{
-        [dictioinary_ setObject:data forKey:key];
+        [self setObjectToDictionary:data forKey:key];
     }
 }
 
 - (id)readDataForKey:(NSString *)key
 {
-    return [dictioinary_ objectForKey:key];
+    return [dictionary_ objectForKey:key];
 }
 
 - (id)takeDataForKey:(NSString *)key
 {
-    id obj = [dictioinary_ objectForKey:key];
-    [dictioinary_ removeObjectForKey:key];
+    id obj = [dictionary_ objectForKey:key];
+    [dictionary_ removeObjectForKey:key];
     return obj;
 }
 
 - (NSDictionary *)dictionary
 {
-    return dictioinary_;
+    return dictionary_;
 }
 
 - (NSSet *)owners
@@ -130,13 +132,23 @@ static NSMapTable *spaces;
     return (NSSet*)_owners;
 }
 
+- (void)setObjectToDictionary:(id)object forKey:(NSString*)aKey
+{
+    for (id owner in _allOwners) {
+        [dictionary_ addObserver:owner forKeyPath:aKey options:NSKeyValueObservingOptionNew context:NULL];
+    }
+    [dictionary_ setObject:object forKey:aKey];
+}
+
 - (void)addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context
 {
+    // set primitive value if dictionary doesn't have object related to keypath
     if ([keyPath isEqualToString:kKXSharedSpaceObserveAllKey]) {
         // observe all key-values
-        [self.dictionary enumerateKeysAndObjectsUsingBlock:^(NSString* key, id obj, BOOL *stop) {
+        [_allOwners addObject:observer];
+        for (NSString *key in self.dictionary.keyEnumerator) {
             [self.dictionary addObserver:observer forKeyPath:key options:options context:context];
-        }];
+        }
     }else{
         [self.dictionary addObserver:observer forKeyPath:keyPath options:options context:NULL];
     }

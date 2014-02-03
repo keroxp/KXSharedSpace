@@ -29,10 +29,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [KXSharedSpace registerSpaceWithName:@"App" owner:self];
-    NSArray *keys = @[@"switch",@"stepper",@"slider",@"segment",@"textField"];
-    for (NSString *key in keys) {
-        [self writeData:@0 toSpaceForKey:@"App" valueKey:key];
-    }
     [[KXSharedSpace spaceWithName:@"App"] addObserver:self forKeyPath:kKXSharedSpaceObserveAllKey options:NSKeyValueObservingOptionNew context:NULL];
 }
 

@@ -33,10 +33,6 @@
     // observe all property of name space "App"
     
     titles_  = @[@"switch",@"stepper",@"slider",@"segment",@"textField"];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
     [[KXSharedSpace spaceWithName:@"App"] addObserver:self forKeyPath:kKXSharedSpaceObserveAllKey options:NSKeyValueObservingOptionNew context:NULL];
 }
 
