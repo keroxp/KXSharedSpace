@@ -12,18 +12,28 @@
 
 @implementation NSObject(KXSharedSpace)
 
-- (void)useSharedSpaceAspect
+- (void)useBlocksKVOAspect
 {
-    Method from = class_getInstanceMethod([self class], @selector(observeValueForKeyPath:ofObject:change:context:));
-    Method to = class_getInstanceMethod([self class], @selector(_observeValueForKeyPath:ofObject:change:context:));
-    if (from) {
-        method_exchangeImplementations(from, to);
+//    [self swizzleMethod:@selector(observeValueForKeyPath:ofObject:change:context:) toMethod:@selector(_observeValueForKeyPath:ofObject:change:context:)];
+    Method m = class_getInstanceMethod([self class], @selector(_observeValueForKeyPath:ofObject:change:context:));
+    const char * type = method_getTypeEncoding(m);
+    IMP imp = method_getImplementation(m);
+    class_addMethod([self class], @selector(observeValueForKeyPath:ofObject:change:context:), imp, type);
+    [self swizzleMethod:@selector(respondsToSelector:) toMethod:@selector(_respondsToSelector:)];
+}
+
+- (void)swizzleMethod:(SEL)from toMethod:(SEL)to
+{
+    Method from_m = class_getInstanceMethod([self class],from);
+    Method to_m = class_getInstanceMethod([self class], to);
+    if ([self respondsToSelector:from]) {
+        method_exchangeImplementations(from_m, to_m);
     }else{
-        const char * type = method_getTypeEncoding(to);
+        const char * type = method_getTypeEncoding(to_m);
         void (^block)() = ^{};
         IMP imp = imp_implementationWithBlock(block);
-        class_addMethod([self class], @selector(observeValueForKeyPath:ofObject:change:context:), imp, type);
-        [self useSharedSpaceAspect];
+        class_addMethod([self class], from, imp, type);
+        [self swizzleMethod:from toMethod:to];
     }
 }
 
@@ -58,13 +68,26 @@
 
 - (void)observeValueOnSpaceForKey:(NSString *)spaceKey valueKey:(NSString *)valueKey once:(BOOL)once handler:(KXKeyValueObservingChangeHandler)handler
 {
-    [[KXSharedSpace spaceWithName:spaceKey] addObserver:self forKeyPath:valueKey options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:&handler];
+    __bridge void * _hadler = [handler copy];
+    [[KXSharedSpace spaceWithName:spaceKey]
+     addObserver:self
+     forKeyPath:valueKey
+     options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
+     context:(__bridge void *)([handler copy])];
+}
+
+- (BOOL)_respondsToSelector:(SEL)aSelector
+{
+    if (aSelector == @selector(observeValueForKeyPath:ofObject:change:context:)) {
+        return YES;
+    }
+    return [self _respondsToSelector:aSelector];
 }
 
 - (void)_observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     // call original method
-    [self _observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+//    [self _observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     // call handler
     NSKeyValueChange kind = [[change objectForKey:NSKeyValueChangeKindKey] integerValue];;
     id new = [change objectForKey:NSKeyValueChangeNewKey];

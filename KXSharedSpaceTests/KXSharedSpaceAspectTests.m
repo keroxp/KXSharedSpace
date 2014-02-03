@@ -20,7 +20,6 @@
 {
     [super setUp];
     // Put setup code here; it will be run once, before the first test case.
-    [self useSharedSpaceAspect];
 }
 
 - (void)tearDown
