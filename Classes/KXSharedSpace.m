@@ -52,10 +52,9 @@ static NSMapTable *spaces;
 - (void)addOwner:(id)owner
 {
     @autoreleasepool {
-        KXSharedSpace *s = [[self class] spaceWithName:self.name];
         [_owners addObject:owner];
         const char * key = [[self.name stringByAppendingString:ownerKey] cStringUsingEncoding:NSUTF8StringEncoding];
-        objc_setAssociatedObject(owner, key, s, OBJC_ASSOCIATION_RETAIN);
+        objc_setAssociatedObject(owner, key, self, OBJC_ASSOCIATION_RETAIN);
     }
 }
 
