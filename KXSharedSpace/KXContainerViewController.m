@@ -28,8 +28,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [KXSharedSpace registerSpaceWithName:@"App" owner:self];
-    [[KXSharedSpace spaceWithName:@"App"] addObserver:self forKeyPath:kKXSharedSpaceObserveAllKey options:NSKeyValueObservingOptionNew context:NULL];
+    [[KXSharedSpace sharedSpace] registerSpaceWithName:@"App" owner:self];
+    [[[KXSharedSpace sharedSpace] spaceWithName:@"App"] addObserver:self forKeyPath:kKXSharedSpaceObserveAllKey options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

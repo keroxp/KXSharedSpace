@@ -9,14 +9,25 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *const kKXSharedSpaceObserveAllKey;
+
+@class KXSharedSpaceInstance;
+
 @interface KXSharedSpace : NSObject
 
++ (instancetype)sharedSpace;
+
 // register shared space with primtive owner
-+ (void)registerSpaceWithName:(NSString*)name owner:(id)owner;
-+ (void)unregisterSpaceWithName:(NSString*)name;
+- (void)registerSpaceWithName:(NSString*)name owner:(id)owner;
+- (void)unregisterSpaceWithName:(NSString*)name;
 
 // get space with specified key
-+ (KXSharedSpace*)spaceWithName:(NSString*)name;
+- (KXSharedSpaceInstance*)spaceWithName:(NSString*)name;
+
+@end
+
+@interface KXSharedSpaceInstance : NSObject
+
+- (instancetype)initWithNameSpace:(NSString *)nameSpace owner:(id)owner;
 
 - (void)writeData:(id)data forKey:(NSString *)key;
 - (id)readDataForKey:(NSString *)key;
@@ -34,5 +45,6 @@ extern NSString *const kKXSharedSpaceObserveAllKey;
 @property (nonatomic, readonly) NSString *name;
 // key-value-store that the reciever has
 @property (nonatomic, readonly) NSDictionary *dictionary;
+
 
 @end

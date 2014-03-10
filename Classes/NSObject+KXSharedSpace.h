@@ -10,8 +10,8 @@
 
 @interface NSObject (KXSharedSpace)
 
-- (void)writeData:(id)data toSpaceForKey:(NSString*)spaceKey valueKey:(NSString*)valueKey;
-- (id)readDataFromSpaceForKey:(NSString*)spaceKey valueKey:(NSString*)valueKey;
-- (id)takeDataFromSpaceForKey:(NSString*)spaceKey valueKey:(NSString*)valueKey;
+- (void)kx_writeData:(id)data toSpaceForKey:(NSString*)spaceKey valueKey:(NSString*)valueKey;
+- (id)kx_readDataFromSpaceForKey:(NSString*)spaceKey valueKey:(NSString*)valueKey;
+- (id)kx_takeDataFromSpaceForKey:(NSString*)spaceKey valueKey:(NSString*)valueKey;
 
 @end

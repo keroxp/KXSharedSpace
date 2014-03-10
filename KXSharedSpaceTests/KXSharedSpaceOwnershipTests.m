@@ -60,20 +60,20 @@
         NSObject *weakOwner1, *weakOwner2;
         weakOwner1 = [NSObject new];
         weakOwner2 = [NSObject new];
-        [KXSharedSpace registerSpaceWithName:@"weak_" owner:weakOwner1];
-        [[KXSharedSpace spaceWithName:@"weak_"] addOwner:weakOwner2];
-        [[KXSharedSpace spaceWithName:@"weak_"] addOwner:self];
-        XCTAssert([[[KXSharedSpace spaceWithName:@"weak_"] owners] count] == 3, @"ownerは二人いるはず");
+        [[KXSharedSpace sharedSpace] registerSpaceWithName:@"weak_" owner:weakOwner1];
+        [[[KXSharedSpace sharedSpace] spaceWithName:@"weak_"] addOwner:weakOwner2];
+        [[[KXSharedSpace sharedSpace] spaceWithName:@"weak_"] addOwner:self];
+        XCTAssert([[[[KXSharedSpace sharedSpace] spaceWithName:@"weak_"] owners] count] == 3, @"ownerは二人いるはず");
     }
-    for (id obj in [[KXSharedSpace spaceWithName:@"weak_"] owners]) {
+    for (id obj in [[[KXSharedSpace sharedSpace] spaceWithName:@"weak_"] owners]) {
         XCTAssert([obj isEqual:self], );
     }
-    XCTAssert([[[KXSharedSpace spaceWithName:@"weak_"] owners] containsObject:self] , @"");
+    XCTAssert([[[[KXSharedSpace sharedSpace] spaceWithName:@"weak_"] owners] containsObject:self] , @"");
 }
 
 - (void)testOwnerShip2
 {
-    KXSharedSpace *s = [KXSharedSpace spaceWithName:@"weak_"];
+    KXSharedSpaceInstance *s = [[KXSharedSpace sharedSpace] spaceWithName:@"weak_"];
     XCTAssert(s, @"selfが参照しているからあるはず");
     NSLog(@"%@",s.owners);
 //    XCTAssert([s.owners.anyObject isEqual:self], @"selfが唯一のowenerなはず");
@@ -82,7 +82,7 @@
 
 - (void)testOwnerShiop3
 {
-    XCTAssertNil([KXSharedSpace spaceWithName:@"weak_"], );
+    XCTAssertNil([[KXSharedSpace sharedSpace] spaceWithName:@"weak_"], );
 }
 
 @end

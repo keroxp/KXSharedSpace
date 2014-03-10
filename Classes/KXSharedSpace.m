@@ -11,42 +11,69 @@
 
 NSString*const kKXSharedSpaceObserveAllKey = @"me.keroxp.app.KX:KXSharedSpaceWatchAllKey";
 static NSString *ownerKey = @"me.keroxp.app.KX:KXSharedSpaceOwnerKey";
-static NSMapTable *spaces;
+
+static id sharedInstance;
 
 @interface KXSharedSpace ()
 {
-    NSMutableDictionary *dictionary_;
-    NSHashTable *_owners;
-    NSHashTable *_allOwners;
+    NSMapTable *_spaces;
 }
-
-- (instancetype)initWithNameSpace:(NSString*)nameSpace owner:(id)owner;
-
 @end
 
 @implementation KXSharedSpace
 
 #pragma mark - Class
 
-+ (void)load
++ (instancetype)sharedSpace
 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        spaces = [NSMapTable mapTableWithKeyOptions:NSMapTableStrongMemory valueOptions:NSMapTableWeakMemory];
-    });
+    @synchronized(self){
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            sharedInstance = [self new];
+        });
+    }
+    return sharedInstance;
 }
 
-+ (void)registerSpaceWithName:(NSString *)name owner:(id)owner
+- (id)init
+{
+    self = [super init];
+    _spaces = [NSMapTable mapTableWithKeyOptions:NSMapTableStrongMemory valueOptions:NSMapTableWeakMemory];
+    return self ?: nil;
+}
+
+- (void)registerSpaceWithName:(NSString *)name owner:(id)owner
 {
     if (!owner) {
         @throw [NSException exceptionWithName:@"KXSharedSpaceNilOwnerException" reason:@"registering shared space with nil owner is forbided" userInfo:nil];
         return;
     }
-    KXSharedSpace *s = [[self alloc] initWithNameSpace:name owner:owner];
+    KXSharedSpaceInstance *s = [[KXSharedSpaceInstance alloc] initWithNameSpace:name owner:owner];
     // register space with name
-    [spaces setObject:s forKey:name];
+    [_spaces setObject:s forKey:name];
     // make owner have strong reference to the space
     [s addOwner:owner];
+}
+
+- (void)unregisterSpaceWithName:(NSString *)name
+{
+    [_spaces removeObjectForKey:name];
+}
+
+- (KXSharedSpace *)spaceWithName:(NSString *)name
+{
+    KXSharedSpace *s = [_spaces objectForKey:name];
+    return s;
+}
+
+
+@end
+
+@implementation KXSharedSpaceInstance
+{
+    NSMutableDictionary *dictionary_;
+    NSHashTable *_owners;
+    NSHashTable *_allOwners;
 }
 
 - (void)addOwner:(id)owner
@@ -65,17 +92,6 @@ static NSMapTable *spaces;
         [_owners removeObject:owner];
         objc_setAssociatedObject(owner, key, nil, OBJC_ASSOCIATION_ASSIGN);
     }
-}
-
-+ (void)unregisterSpaceWithName:(NSString *)name
-{
-    [spaces removeObjectForKey:name];
-}
-
-+ (KXSharedSpace *)spaceWithName:(NSString *)name
-{
-    KXSharedSpace *s = [spaces objectForKey:name];
-    return s;
 }
 
 #pragma mark - Instance

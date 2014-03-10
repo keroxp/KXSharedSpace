@@ -30,14 +30,14 @@
 
 - (void)testBasic
 {
-    XCTAssertNil([self readDataFromSpaceForKey:@"nil" valueKey:@"nil"], @"まだ登録されてない");
-    [self writeData:@"data1" toSpaceForKey:@"test1" valueKey:@"data1"];
-    XCTAssertNotNil([KXSharedSpace spaceWithName:@"test1"], @"登録済み");
-    NSString *data1 = [self readDataFromSpaceForKey:@"test1" valueKey:@"data1"];
+    XCTAssertNil([self kx_readDataFromSpaceForKey:@"nil" valueKey:@"nil"], @"まだ登録されてない");
+    [self kx_writeData:@"data1" toSpaceForKey:@"test1" valueKey:@"data1"];
+    XCTAssertNotNil([[KXSharedSpace sharedSpace] spaceWithName:@"test1"], @"登録済み");
+    NSString *data1 = [self kx_readDataFromSpaceForKey:@"test1" valueKey:@"data1"];
     XCTAssert(data1, );
     XCTAssert([data1 isEqualToString:@"data1"], );
-    data1 = [self takeDataFromSpaceForKey:@"test1" valueKey:@"data1"];
-    XCTAssertNil([[KXSharedSpace spaceWithName:@"test1"] readDataForKey:@"data1"],);
+    data1 = [self kx_takeDataFromSpaceForKey:@"test1" valueKey:@"data1"];
+    XCTAssertNil([[[KXSharedSpace sharedSpace] spaceWithName:@"test1"] readDataForKey:@"data1"],);
     XCTAssert([data1 isEqualToString:@"data1"], );
 }
 

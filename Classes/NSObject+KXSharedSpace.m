@@ -12,12 +12,12 @@
 
 @implementation NSObject(KXSharedSpace)
 
-- (KXSharedSpace*)spaceWithCommonProc:(NSString*)spaceKey
+- (KXSharedSpaceInstance*)spaceWithCommonProc:(NSString*)spaceKey
 {
     // make the reciever have strong ownership even if calling this method once
-    KXSharedSpace *s = [KXSharedSpace spaceWithName:spaceKey];
+    KXSharedSpaceInstance *s = [[KXSharedSpace sharedSpace] spaceWithName:spaceKey];
     if (!s) {
-        [KXSharedSpace registerSpaceWithName:spaceKey owner:self];
+        [[KXSharedSpace sharedSpace] registerSpaceWithName:spaceKey owner:self];
         return [self spaceWithCommonProc:spaceKey];
     }
     if(![s.owners containsObject:self]){
@@ -26,17 +26,17 @@
     return s;
 }
 
-- (void)writeData:(id)data toSpaceForKey:(NSString *)spaceKey valueKey:(NSString *)valueKey
+- (void)kx_writeData:(id)data toSpaceForKey:(NSString *)spaceKey valueKey:(NSString *)valueKey
 {
     [[self spaceWithCommonProc:spaceKey] writeData:data forKey:valueKey];
 }
 
-- (id)readDataFromSpaceForKey:(NSString *)spaceKey valueKey:(NSString *)valueKey
+- (id)kx_readDataFromSpaceForKey:(NSString *)spaceKey valueKey:(NSString *)valueKey
 {
     return [[self spaceWithCommonProc:spaceKey] readDataForKey:valueKey];
 }
 
-- (id)takeDataFromSpaceForKey:(NSString *)spaceKey valueKey:(NSString *)valueKey
+- (id)kx_takeDataFromSpaceForKey:(NSString *)spaceKey valueKey:(NSString *)valueKey
 {
     return [[self spaceWithCommonProc:spaceKey] takeDataForKey:valueKey];
 }

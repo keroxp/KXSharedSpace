@@ -33,7 +33,7 @@
     // observe all property of name space "App"
     
     titles_  = @[@"switch",@"stepper",@"slider",@"segment",@"textField"];
-    [[KXSharedSpace spaceWithName:@"App"] addObserver:self forKeyPath:kKXSharedSpaceObserveAllKey options:NSKeyValueObservingOptionNew context:NULL];
+    [[[KXSharedSpace sharedSpace] spaceWithName:@"App"] addObserver:self forKeyPath:kKXSharedSpaceObserveAllKey options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -63,7 +63,7 @@
     static NSString *ID = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     cell.textLabel.text = titles_[indexPath.row];
-    id val = [self readDataFromSpaceForKey:@"App" valueKey:titles_[indexPath.row]];
+    id val = [self kx_readDataFromSpaceForKey:@"App" valueKey:titles_[indexPath.row]];
     switch (indexPath.row) {
         case 0:
             cell.detailTextLabel.text = ([val boolValue]) ? @"on" : @"off";

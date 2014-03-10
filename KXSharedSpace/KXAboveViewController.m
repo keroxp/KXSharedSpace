@@ -35,20 +35,20 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)switchDidChange:(UISwitch*)sender {
-    [self writeData:@([sender isOn])toSpaceForKey:@"App" valueKey:@"switch"];
+    [self kx_writeData:@([sender isOn])toSpaceForKey:@"App" valueKey:@"switch"];
 }
 - (IBAction)stepperDidChange:(UIStepper *)sender {
-    [self writeData:@(sender.value) toSpaceForKey:@"App" valueKey:@"stepper"];
+    [self kx_writeData:@(sender.value) toSpaceForKey:@"App" valueKey:@"stepper"];
 }
 - (IBAction)slider:(UISlider *)sender {
-    [self writeData:@([sender value]) toSpaceForKey:@"App" valueKey:@"slider"];
+    [self kx_writeData:@([sender value]) toSpaceForKey:@"App" valueKey:@"slider"];
 }
 - (IBAction)segment:(UISegmentedControl *)sender {
-    [self writeData:@([sender selectedSegmentIndex]) toSpaceForKey:@"App" valueKey:@"segment"];
+    [self kx_writeData:@([sender selectedSegmentIndex]) toSpaceForKey:@"App" valueKey:@"segment"];
 }
 
 - (IBAction)textField:(UITextField *)sender {
-    [self writeData:sender.text toSpaceForKey:@"App" valueKey:@"textField"];
+    [self kx_writeData:sender.text toSpaceForKey:@"App" valueKey:@"textField"];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
