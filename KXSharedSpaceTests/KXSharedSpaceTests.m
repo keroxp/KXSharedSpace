@@ -90,6 +90,20 @@
     }
 }
 
+- (void)testMultiThread
+{
+    __block BOOL finished = NO;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        XCTAssert(![NSThread isMainThread], );
+        XCTAssertNoThrow([[KXSharedSpace sharedSpace] registerSpaceWithName:@"hoge" owner:self]);
+        XCTAssertNoThrow([self kx_writeData:@"data" toSpaceForKey:@"hoge" valueKey:@"data"], );
+        XCTAssertNoThrow([self kx_readDataFromSpaceForKey:@"hoge" valueKey:@"data"], );
+        finished = YES;
+    });
+    while (!finished) {
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
+    }
+}
 
 
 @end
