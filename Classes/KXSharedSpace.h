@@ -23,6 +23,8 @@ extern NSString *const kKXSharedSpaceObserveAllKey;
 // get space with specified key
 - (KXSharedSpaceInstance*)spaceWithName:(NSString*)name;
 
+- (NSDictionary*)spaces;
+
 @end
 
 @interface KXSharedSpaceInstance : NSObject
@@ -39,12 +41,12 @@ extern NSString *const kKXSharedSpaceObserveAllKey;
 - (void)addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context;
 - (void)removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void *)context;
 
-// owner objects of the reciever
-@property (nonatomic, readonly) NSSet *owners;
-// name of the reciever
-@property (nonatomic, readonly) NSString *name;
+// spaces's owners
+- (NSSet*)owners;
 // key-value-store that the reciever has
-@property (nonatomic, readonly) NSDictionary *dictionary;
+- (NSDictionary*)dictionary;
 
+// name of the space
+@property (nonatomic, readonly) NSString *name;
 
 @end

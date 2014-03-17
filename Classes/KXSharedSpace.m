@@ -29,7 +29,7 @@ static id sharedInstance;
     @synchronized(self){
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            sharedInstance = [self new];
+            sharedInstance = [[self alloc] init];
         });
     }
     return sharedInstance;
@@ -49,10 +49,12 @@ static id sharedInstance;
         return;
     }
     KXSharedSpaceInstance *s = [[KXSharedSpaceInstance alloc] initWithNameSpace:name owner:owner];
-    // register space with name
-    [_spaces setObject:s forKey:name];
     // make owner have strong reference to the space
     [s addOwner:owner];
+    // register space with name
+    [_spaces setObject:s forKey:name];
+    // console
+    NSLog(@"Shared space has been registred '%@ : %@",name, _spaces);
 }
 
 - (void)unregisterSpaceWithName:(NSString *)name
@@ -60,18 +62,21 @@ static id sharedInstance;
     [_spaces removeObjectForKey:name];
 }
 
-- (KXSharedSpace *)spaceWithName:(NSString *)name
+- (KXSharedSpaceInstance *)spaceWithName:(NSString *)name
 {
-    KXSharedSpace *s = [_spaces objectForKey:name];
-    return s;
+    return [_spaces objectForKey:name];
 }
 
+- (NSDictionary *)spaces
+{
+    return _spaces.dictionaryRepresentation;
+}
 
 @end
 
 @implementation KXSharedSpaceInstance
 {
-    NSMutableDictionary *dictionary_;
+    NSMutableDictionary *__dictionary;
     NSHashTable *_owners;
     NSHashTable *_allOwners;
 }
@@ -106,11 +111,11 @@ static id sharedInstance;
 - (instancetype)initWithNameSpace:(NSString *)nameSpace owner:(id)owner
 {
     if (self = [super init]) {
-        dictionary_ = [NSMutableDictionary new];
+        __dictionary = [NSMutableDictionary new];
         _name = nameSpace;
         _owners = [NSHashTable hashTableWithOptions:NSHashTableWeakMemory];
         _allOwners = [NSHashTable hashTableWithOptions:NSHashTableWeakMemory];
-        [_owners addObject:owner];
+        [self addOwner:owner];
     }
     return self ? self : nil;
 }
@@ -127,32 +132,32 @@ static id sharedInstance;
 
 - (id)readDataForKey:(NSString *)key
 {
-    return [dictionary_ objectForKey:key];
+    return [__dictionary objectForKey:key];
 }
 
 - (id)takeDataForKey:(NSString *)key
 {
-    id obj = [dictionary_ objectForKey:key];
-    [dictionary_ removeObjectForKey:key];
+    id obj = [__dictionary objectForKey:key];
+    [__dictionary removeObjectForKey:key];
     return obj;
-}
-
-- (NSDictionary *)dictionary
-{
-    return dictionary_;
 }
 
 - (NSSet *)owners
 {
-    return (NSSet*)_owners;
+    return _owners.setRepresentation;
+}
+
+- (NSDictionary *)dictionary
+{
+    return __dictionary;
 }
 
 - (void)setObjectToDictionary:(id)object forKey:(NSString*)aKey
 {
     for (id owner in _allOwners) {
-        [dictionary_ addObserver:owner forKeyPath:aKey options:NSKeyValueObservingOptionNew context:NULL];
+        [__dictionary addObserver:owner forKeyPath:aKey options:NSKeyValueObservingOptionNew context:NULL];
     }
-    [dictionary_ setObject:object forKey:aKey];
+    [__dictionary setObject:object forKey:aKey];
 }
 
 - (void)addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context

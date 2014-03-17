@@ -11,6 +11,10 @@
 		2370B131189F8FBC00ECBCD6 /* KXAboveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2370B130189F8FBC00ECBCD6 /* KXAboveViewController.m */; };
 		2370B134189F8FC400ECBCD6 /* KXBelowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2370B133189F8FC400ECBCD6 /* KXBelowViewController.m */; };
 		2370B137189F8FE800ECBCD6 /* KXContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2370B136189F8FE800ECBCD6 /* KXContainerViewController.m */; };
+		23BCCC0718D01FCD00E792E4 /* KXNav1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BCCC0618D01FCD00E792E4 /* KXNav1ViewController.m */; };
+		23BCCC0A18D01FD400E792E4 /* KXNav2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BCCC0918D01FD400E792E4 /* KXNav2ViewController.m */; };
+		23BCCC0E18D0219500E792E4 /* KXSpacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BCCC0D18D0219500E792E4 /* KXSpacesViewController.m */; };
+		23BCCC1218D022DE00E792E4 /* KXSpacesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BCCC1118D022DE00E792E4 /* KXSpacesDetailViewController.m */; };
 		23DC29D71899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DC29D61899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m */; };
 		23DC29DA1899E6ED0077B9C0 /* NSObject+KXSharedSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 23DC29D91899E6ED0077B9C0 /* NSObject+KXSharedSpace.m */; };
 		A61DEDFE189D4409005B51C0 /* KXTestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A61DEDFD189D4409005B51C0 /* KXTestObject.m */; };
@@ -48,6 +52,14 @@
 		2370B133189F8FC400ECBCD6 /* KXBelowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXBelowViewController.m; sourceTree = "<group>"; };
 		2370B135189F8FE800ECBCD6 /* KXContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXContainerViewController.h; sourceTree = "<group>"; };
 		2370B136189F8FE800ECBCD6 /* KXContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXContainerViewController.m; sourceTree = "<group>"; };
+		23BCCC0518D01FCD00E792E4 /* KXNav1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXNav1ViewController.h; sourceTree = "<group>"; };
+		23BCCC0618D01FCD00E792E4 /* KXNav1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXNav1ViewController.m; sourceTree = "<group>"; };
+		23BCCC0818D01FD400E792E4 /* KXNav2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXNav2ViewController.h; sourceTree = "<group>"; };
+		23BCCC0918D01FD400E792E4 /* KXNav2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXNav2ViewController.m; sourceTree = "<group>"; };
+		23BCCC0C18D0219500E792E4 /* KXSpacesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXSpacesViewController.h; sourceTree = "<group>"; };
+		23BCCC0D18D0219500E792E4 /* KXSpacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXSpacesViewController.m; sourceTree = "<group>"; };
+		23BCCC1018D022DE00E792E4 /* KXSpacesDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXSpacesDetailViewController.h; sourceTree = "<group>"; };
+		23BCCC1118D022DE00E792E4 /* KXSpacesDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXSpacesDetailViewController.m; sourceTree = "<group>"; };
 		23DC29D61899E6CA0077B9C0 /* KXSharedSpaceAspectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXSharedSpaceAspectTests.m; sourceTree = "<group>"; };
 		23DC29D81899E6ED0077B9C0 /* NSObject+KXSharedSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KXSharedSpace.h"; sourceTree = "<group>"; };
 		23DC29D91899E6ED0077B9C0 /* NSObject+KXSharedSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KXSharedSpace.m"; sourceTree = "<group>"; };
@@ -98,6 +110,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23BCCC0418D01F9F00E792E4 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				2370B135189F8FE800ECBCD6 /* KXContainerViewController.h */,
+				2370B136189F8FE800ECBCD6 /* KXContainerViewController.m */,
+				2370B12F189F8FBC00ECBCD6 /* KXAboveViewController.h */,
+				2370B130189F8FBC00ECBCD6 /* KXAboveViewController.m */,
+				2370B132189F8FC400ECBCD6 /* KXBelowViewController.h */,
+				2370B133189F8FC400ECBCD6 /* KXBelowViewController.m */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		23BCCC0B18D01FD800E792E4 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				23BCCC0518D01FCD00E792E4 /* KXNav1ViewController.h */,
+				23BCCC0618D01FCD00E792E4 /* KXNav1ViewController.m */,
+				23BCCC0818D01FD400E792E4 /* KXNav2ViewController.h */,
+				23BCCC0918D01FD400E792E4 /* KXNav2ViewController.m */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		23BCCC0F18D0219A00E792E4 /* Spaces */ = {
+			isa = PBXGroup;
+			children = (
+				23BCCC0C18D0219500E792E4 /* KXSpacesViewController.h */,
+				23BCCC0D18D0219500E792E4 /* KXSpacesViewController.m */,
+				23BCCC1018D022DE00E792E4 /* KXSpacesDetailViewController.h */,
+				23BCCC1118D022DE00E792E4 /* KXSpacesDetailViewController.m */,
+			);
+			name = Spaces;
+			sourceTree = "<group>";
+		};
 		A6D4F18B1898EE470083EC74 = {
 			isa = PBXGroup;
 			children = (
@@ -135,12 +182,9 @@
 				A6D4F1A61898EE470083EC74 /* KXAppDelegate.h */,
 				A6D4F1A71898EE470083EC74 /* KXAppDelegate.m */,
 				A6D4F1A91898EE470083EC74 /* Main.storyboard */,
-				2370B135189F8FE800ECBCD6 /* KXContainerViewController.h */,
-				2370B136189F8FE800ECBCD6 /* KXContainerViewController.m */,
-				2370B12F189F8FBC00ECBCD6 /* KXAboveViewController.h */,
-				2370B130189F8FBC00ECBCD6 /* KXAboveViewController.m */,
-				2370B132189F8FC400ECBCD6 /* KXBelowViewController.h */,
-				2370B133189F8FC400ECBCD6 /* KXBelowViewController.m */,
+				23BCCC0F18D0219A00E792E4 /* Spaces */,
+				23BCCC0418D01F9F00E792E4 /* New Group */,
+				23BCCC0B18D01FD800E792E4 /* New Group */,
 				A6D4F1B21898EE470083EC74 /* Images.xcassets */,
 				A6D4F19E1898EE470083EC74 /* Supporting Files */,
 			);
@@ -236,7 +280,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = KX;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Yusuke Sakurai";
 				TargetAttributes = {
 					A6D4F1B71898EE470083EC74 = {
@@ -290,11 +334,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6D4F1D6189902EE0083EC74 /* KXSharedSpace.m in Sources */,
+				23BCCC0718D01FCD00E792E4 /* KXNav1ViewController.m in Sources */,
 				2370B134189F8FC400ECBCD6 /* KXBelowViewController.m in Sources */,
+				23BCCC1218D022DE00E792E4 /* KXSpacesDetailViewController.m in Sources */,
 				2370B137189F8FE800ECBCD6 /* KXContainerViewController.m in Sources */,
 				A6D4F1A41898EE470083EC74 /* main.m in Sources */,
 				A6D4F1A81898EE470083EC74 /* KXAppDelegate.m in Sources */,
 				2370B131189F8FBC00ECBCD6 /* KXAboveViewController.m in Sources */,
+				23BCCC0A18D01FD400E792E4 /* KXNav2ViewController.m in Sources */,
+				23BCCC0E18D0219500E792E4 /* KXSpacesViewController.m in Sources */,
 				23DC29DA1899E6ED0077B9C0 /* NSObject+KXSharedSpace.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,7 +400,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -391,7 +438,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -428,6 +474,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KXSharedSpace/KXSharedSpace-Prefix.pch";
 				INFOPLIST_FILE = "KXSharedSpace/KXSharedSpace-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -441,6 +488,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KXSharedSpace/KXSharedSpace-Prefix.pch";
 				INFOPLIST_FILE = "KXSharedSpace/KXSharedSpace-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -449,7 +497,6 @@
 		A6D4F1CD1898EE470083EC74 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KXSharedSpace.app/KXSharedSpace";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -472,7 +519,6 @@
 		A6D4F1CE1898EE470083EC74 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KXSharedSpace.app/KXSharedSpace";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
