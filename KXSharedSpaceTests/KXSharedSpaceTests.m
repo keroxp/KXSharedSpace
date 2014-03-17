@@ -62,6 +62,14 @@
     XCTAssertNil([s readDataForKey:@"data1"], );
 }
 
+- (void)testBasic2
+{
+    [[KXSharedSpace sharedSpace] registerSpaceWithName:@"App" owner:self];
+    KXSharedSpaceInstance *space = [[KXSharedSpace sharedSpace] spaceWithName:@"App"];
+    [space writeData:@"hoge" forKey:@"data"];
+    XCTAssert([[space readDataForKey:@"data"] isEqualToString:@"hoge"], ); // true
+}
+
 - (void)testWrite
 {
     KXSharedSpaceInstance *s = [[KXSharedSpace sharedSpace] spaceWithName:@"strong"];

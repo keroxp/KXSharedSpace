@@ -73,12 +73,13 @@
 
 - (void)testOwnerShip2
 {
-    KXSharedSpaceInstance *s = [[KXSharedSpace sharedSpace] spaceWithName:@"weak_"];
-    XCTAssert(s, @"selfが参照しているからあるはず");
-    NSLog(@"%@",s.owners);
-//    XCTAssert([s.owners.anyObject isEqual:self], @"selfが唯一のowenerなはず");
-    [s removeOwner:self];
+    [[KXSharedSpace sharedSpace] registerSpaceWithName:@"Owner" owner:self];
+    KXSharedSpaceInstance *i = [[KXSharedSpace sharedSpace] spaceWithName:@"Owner"];
+    XCTAssert([i.owners.anyObject isEqual:self], );
+    [i removeOwner:self];
+    XCTAssert(i.owners.count == 0, );
 }
+    
 
 - (void)testOwnerShiop3
 {

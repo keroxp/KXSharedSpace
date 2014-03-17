@@ -85,17 +85,15 @@ static id sharedInstance;
 {
     @autoreleasepool {
         [_owners addObject:owner];
-        const char * key = [[self.name stringByAppendingString:ownerKey] cStringUsingEncoding:NSUTF8StringEncoding];
-        objc_setAssociatedObject(owner, key, self, OBJC_ASSOCIATION_RETAIN);
+        objc_setAssociatedObject(owner, (__bridge const void *)(self), self, OBJC_ASSOCIATION_RETAIN);
     }
 }
 
 - (void)removeOwner:(id)owner
 {
     @autoreleasepool {
-        const char * key = [[self.name stringByAppendingString:ownerKey] cStringUsingEncoding:NSUTF8StringEncoding];
         [_owners removeObject:owner];
-        objc_setAssociatedObject(owner, key, nil, OBJC_ASSOCIATION_ASSIGN);
+        objc_setAssociatedObject(owner, (__bridge const void *)(self), nil, OBJC_ASSOCIATION_ASSIGN);
     }
 }
 
